@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+      .palette {
+        max-width: 75vmin;
+        width: 100%;
+        display: flex;
+      }
+
+      .palette div {
+        width: 100%;
+        height: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="palette palette-1"></div>
+    <div class="palette palette-2"></div>
+
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
