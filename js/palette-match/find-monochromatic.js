@@ -17,9 +17,7 @@ function findMonochromatic(color, colors, getColorDiff) {
   const matches = targets.map((target) => {
     const choice = nearest(colors, getColorDiff)(target)[0];
 
-    colors = colors.filter(
-      (c) => c.h !== choice.h && c.l !== choice.l && c.c !== choice.c
-    );
+    colors = colors.filter((c) => JSON.stringify(c) !== JSON.stringify(choice));
 
     return choice;
   });

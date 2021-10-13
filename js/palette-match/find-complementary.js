@@ -13,7 +13,7 @@ function findComplementary(color, colors, getColorDiff) {
   const matches = targets.map((target) => {
     const choice = nearest(colors, getColorDiff)(target)[0];
 
-    colors = colors.filter((c) => c.h !== choice.h);
+    colors = colors.filter((c) => JSON.stringify(c) !== JSON.stringify(choice));
 
     return choice;
   });

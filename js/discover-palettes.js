@@ -22,8 +22,8 @@ const defaults = {
     mode: 'lch',
     weights: {
       hue: 1,
-      intensity: 0.75,
-      lightness: 0.75,
+      intensity: 1,
+      lightness: 1,
     },
   },
   colors: [],

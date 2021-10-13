@@ -1,27 +1,38 @@
 import { discoverPalettes } from './discover-palettes';
 import { converter, parse, formatHex } from 'culori';
 import risocolors from 'riso-colors';
+import pantonecolors from '../panetone';
 
 const toHSL = converter('hsl');
 
 const baseColor = {
-  h: 200,
-  s: 0.75,
-  l: 0.5,
+  h: 30,
+  s: 1,
+  l: 0.65,
 };
 
-const { analogous } = discoverPalettes({
+const palettes = discoverPalettes({
   baseColor,
-  colors: risocolors.map((c) => toHSL(parse(c.hex))),
+  colors: [...pantonecolors].map((c) => toHSL(parse(c.hex))),
   match: {
     mode: 'lch',
   },
 });
 
-analogous.colors.forEach((c) => {
-  const el = document.createElement('div');
-  el.style.backgroundColor = formatHex(c);
-  document.querySelector('.palette-1').appendChild(el);
-});
+Object.keys(palettes).forEach((p) => {
+  const wrapper = document.createElement('div');
+  wrapper.classList = 'palette';
 
-console.log(monochromatic);
+  const title = document.createElement('p');
+  title.innerHTML = p;
+
+  wrapper.appendChild(title);
+
+  palettes[p].colors.forEach((c) => {
+    const el = document.createElement('div');
+    el.style.backgroundColor = formatHex(c);
+    wrapper.appendChild(el);
+  });
+
+  document.body.appendChild(wrapper);
+});
